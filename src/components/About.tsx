@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="py-20 bg-gray-900" data-animation="animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
@@ -39,8 +39,8 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Story */}
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 transform hover:-translate-y-2">
+          <div className="space-y-6" data-stagger>
+            <div className="magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50">
               <h3 className="text-2xl font-bold text-white mb-4">My Journey</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
                 As a recent computer science graduate, I've immersed myself in the world of technology with an 
@@ -59,12 +59,12 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6 rounded-xl border border-blue-500/20">
+            <div className="grid grid-cols-2 gap-4" data-stagger>
+              <div className="magical-card bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6 rounded-xl border border-blue-500/20">
                 <h4 className="text-2xl font-bold text-white mb-2">15+</h4>
                 <p className="text-gray-400">Technologies Learned</p>
               </div>
-              <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 p-6 rounded-xl border border-green-500/20">
+              <div className="magical-card bg-gradient-to-br from-green-500/10 to-blue-500/10 p-6 rounded-xl border border-green-500/20">
                 <h4 className="text-2xl font-bold text-white mb-2">3</h4>
                 <p className="text-gray-400">Internships Completed</p>
               </div>
@@ -72,11 +72,11 @@ const About = () => {
           </div>
 
           {/* Right Column - Highlights */}
-          <div className="space-y-6">
+          <div className="space-y-6" data-stagger>
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1"
+                className="magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50"
               >
                 <div className="flex items-start space-x-4">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-lg text-white">

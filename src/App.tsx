@@ -42,13 +42,28 @@ function App() {
   useEffect(() => {
     // Add scroll animations
     const observerOptions = {
-      threshold: 0.1
+      threshold: 0.02,
+      rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in');
+          const animationType = entry.target.getAttribute('data-animation') || 'animate-fade-in';
+          const delay = entry.target.getAttribute('data-delay') || '';
+          
+          entry.target.classList.add(animationType);
+          if (delay) {
+            entry.target.classList.add(delay);
+          }
+          
+          // Add staggered animations to children
+          const children = entry.target.querySelectorAll('[data-stagger]');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-fade-in');
+            }, index * 100);
+          });
         }
       });
     }, observerOptions);
@@ -57,6 +72,12 @@ function App() {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
       observer.observe(section);
+    });
+
+    // Observe cards and other elements
+    const animatedElements = document.querySelectorAll('[data-animation]');
+    animatedElements.forEach(element => {
+      observer.observe(element);
     });
 
     return () => observer.disconnect();

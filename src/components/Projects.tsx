@@ -74,7 +74,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-black">
+    <section id="projects" className="py-20 bg-black" data-animation="animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
@@ -89,16 +89,17 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 hover:border-purple-500/50 overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-2"
+              className="group magical-card bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 hover:border-purple-500/50 overflow-hidden"
+              data-stagger
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-500"></div>
                 <div className={`absolute top-4 left-4 bg-gradient-to-r ${project.color} p-2 rounded-lg text-white`}>
                   {project.icon}
                 </div>
@@ -111,7 +112,7 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-500">
                   {project.title}
                 </h3>
                 
@@ -138,7 +139,7 @@ const Projects = () => {
                     {project.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-xs border border-gray-600"
+                        className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-xs border border-gray-600 hover:border-purple-500/50 transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -150,14 +151,14 @@ const Projects = () => {
                 <div className="flex gap-4">
                   <a
                     href={project.github}
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex-1 justify-center"
+                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg btn-hover flex-1 justify-center"
                   >
                     <Github size={18} />
                     <span>Code</span>
                   </a>
                   <a
                     href={project.demo}
-                    className={`flex items-center gap-2 bg-gradient-to-r ${project.color} hover:opacity-90 text-white px-4 py-2 rounded-lg transition-opacity duration-200 flex-1 justify-center`}
+                    className={`flex items-center gap-2 bg-gradient-to-r ${project.color} hover:opacity-90 text-white px-4 py-2 rounded-lg btn-hover flex-1 justify-center`}
                   >
                     <ExternalLink size={18} />
                     <span>Demo</span>
@@ -170,7 +171,7 @@ const Projects = () => {
 
         {/* Additional Projects Note */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 max-w-2xl mx-auto">
+          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 max-w-2xl mx-auto" data-stagger>
             <h3 className="text-2xl font-bold text-white mb-4">More Projects Coming Soon</h3>
             <p className="text-gray-400 mb-6">
               Currently working on several exciting projects involving advanced ML algorithms, 
@@ -178,7 +179,7 @@ const Projects = () => {
             </p>
             <a
               href="https://github.com"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-full font-semibold btn-hover"
             >
               <Github size={18} />
               View All Projects

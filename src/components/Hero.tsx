@@ -49,35 +49,35 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="space-y-8">
           <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-in-up">
               Hello, I'm{' '}
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Alex Johnson
+                Vedant Dindore
               </span>
             </h1>
             
-            <div className="text-2xl sm:text-3xl lg:text-4xl text-gray-300 h-16 flex items-center justify-center">
+            <div className="text-2xl sm:text-3xl lg:text-4xl text-gray-300 h-16 flex items-center justify-center animate-slide-in-up delay-200">
               <span className="border-r-2 border-blue-400 pr-1">
                 {currentText}
               </span>
             </div>
           </div>
 
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed animate-slide-in-up delay-300">
             Passionate fresher developer specializing in full-stack development, data science, 
             and machine learning. Ready to bring innovative solutions to your team.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-up delay-400">
             <a
               href="#contact"
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl animate-glow"
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover shadow-lg hover:shadow-xl animate-glow"
             >
               Get In Touch
             </a>
             <a
               href="/resume.pdf"
-              className="border-2 border-gray-600 hover:border-white text-gray-300 hover:text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2 hover:bg-white/5"
+              className="border-2 border-gray-600 hover:border-white text-gray-300 hover:text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-white/5"
             >
               <Download size={20} />
               Download Resume
@@ -86,7 +86,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-10">
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-magical-float z-10 animate-slide-in-up delay-600">
         <ChevronDown size={32} className="text-gray-400" />
       </div>
     </section>

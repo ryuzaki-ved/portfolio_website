@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Alex Johnson
+              Vedant Dindore
             </h3>
             <p className="text-gray-400 leading-relaxed">
               Full Stack Developer & Data Scientist passionate about creating innovative solutions 
@@ -45,7 +45,7 @@ const Footer = () => {
             <h4 className="text-white font-semibold">Let's Connect</h4>
             <div className="space-y-2">
               <p className="text-gray-400">
-                <span className="font-medium">Email:</span> alex.johnson@email.com
+                <span className="font-medium">Email:</span> vedant.dindore@email.com
               </p>
               <p className="text-gray-400">
                 <span className="font-medium">Location:</span> San Francisco, CA
@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Alex Johnson. All rights reserved.
+              © {new Date().getFullYear()} Vedant Dindore. All rights reserved.
             </div>
 
             {/* Made with love */}
