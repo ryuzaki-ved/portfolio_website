@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Alex Johnson - Full Stack Developer & Data Scientist. Passionate about React, Python, Machine Learning, and creating innovative solutions." />
+    <meta name="keywords" content="Full Stack Developer, Data Scientist, React, Python, Machine Learning, Portfolio" />
+    <meta name="author" content="Alex Johnson" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexjohnson.dev/" />
+    <meta property="og:title" content="Alex Johnson - Developer Portfolio" />
+    <meta property="og:description" content="Full Stack Developer & Data Scientist specializing in React, Python, and Machine Learning" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://alexjohnson.dev/" />
+    <meta property="twitter:title" content="Alex Johnson - Developer Portfolio" />
+    <meta property="twitter:description" content="Full Stack Developer & Data Scientist specializing in React, Python, and Machine Learning" />
+    
+    <title>Alex Johnson - Full Stack Developer & Data Scientist</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+      /* Critical CSS for immediate loading */
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #111827;
+        color: #f9fafb;
+      }
+      
+      /* Loading spinner */
+      .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top-color: #8b5cf6;
+        animation: spin 1s ease-in-out infinite;
+        z-index: 9999;
+      }
+      
+      @keyframes spin {
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      
+      /* Hide loading spinner once content loads */
+      .loaded .loading-spinner {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-spinner"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <script>
+      // Hide loading spinner once page loads
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+      });
+    </script>
+  </body>
+</html>
