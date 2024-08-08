@@ -84,10 +84,10 @@ const Hero = () => {
             </a>
           </div>
         </div>
+      </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-          <ChevronDown size={32} className="text-gray-400" />
-        </div>
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce-slow z-10">
+        <ChevronDown size={32} className="text-gray-400" />
       </div>
     </section>
   );
