@@ -100,7 +100,7 @@ const Contact = () => {
                 <a
                   key={index}
                   href={info.link}
-                  className="flex items-center space-x-4 bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105"
+                  className="flex items-center space-x-4 bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1"
                 >
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-lg text-white">
                     {info.icon}
@@ -132,7 +132,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300">
             <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -204,7 +204,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/30 animate-glow"
               >
                 <Send size={20} />
                 Send Message

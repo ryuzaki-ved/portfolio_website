@@ -143,6 +143,7 @@ html {
 body {
   background-color: #111827;
   color: #f9fafb;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
 /* Improved contrast for better accessibility */

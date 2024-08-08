@@ -40,7 +40,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Story */}
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300">
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 transform hover:-translate-y-2">
               <h3 className="text-2xl font-bold text-white mb-4">My Journey</h3>
               <p className="text-gray-300 leading-relaxed mb-4">
                 As a recent computer science graduate, I've immersed myself in the world of technology with an 
@@ -76,7 +76,7 @@ const About = () => {
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
                   <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-lg text-white">

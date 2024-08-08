@@ -56,7 +56,7 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300"
+              className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 transform hover:-translate-y-2"
             >
               <h3 className="text-2xl font-bold text-white mb-8 text-center">{category.title}</h3>
               <div className="space-y-6">
@@ -68,7 +68,7 @@ const Skills = () => {
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
                       <div
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
+                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out hover:animate-pulse`}
                         style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
