@@ -1,6 +1,9 @@
 import React from 'react';
+import { Grid, Zap } from 'lucide-react';
 
 const Skills = () => {
+  const [showRibbons, setShowRibbons] = React.useState(true);
+
   const skillCategories = [
     {
       title: 'Programming Languages',
@@ -38,6 +41,13 @@ const Skills = () => {
         { name: 'Git/GitHub', level: 92, color: 'from-gray-400 to-gray-600' }
       ]
     }
+  ];
+
+  // All technologies consolidated for the static list
+  const allTechnologies = [
+    'Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins',
+    'Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib',
+    'Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'
   ];
 
   return (
@@ -82,8 +92,28 @@ const Skills = () => {
 
         {/* Additional Technologies */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">Other Technologies & Tools</h3>
-          <div className="space-y-6" data-stagger>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <h3 className="text-2xl font-bold text-white">Other Technologies & Tools</h3>
+            <button
+              onClick={() => setShowRibbons(!showRibbons)}
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-full font-medium btn-hover text-sm transition-all duration-300"
+            >
+              {showRibbons ? (
+                <>
+                  <Grid size={16} />
+                  Show List
+                </>
+              ) : (
+                <>
+                  <Zap size={16} />
+                  Show Ribbons
+                </>
+              )}
+            </button>
+          </div>
+
+          {showRibbons ? (
+            <div className="space-y-6" data-stagger>
             {/* First Ribbon - Left to Right */}
             <div className="overflow-hidden whitespace-nowrap">
               <div className="inline-block animate-scroll-left-slow">
@@ -137,7 +167,28 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-          </div>
+            </div>
+          ) : (
+            <div className="max-w-4xl mx-auto" data-stagger>
+              <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                  {allTechnologies.map((tech, index) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-center font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-600 hover:border-purple-500/50"
+                    >
+                      {tech}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 text-center">
+                  <p className="text-gray-400 text-sm">
+                    Click on any technology to learn more about my experience with it
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
