@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download } from 'lucide-react';
 
 const Hero = () => {
+  const [animationState, setAnimationState] = useState('hello');
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -12,6 +13,22 @@ const Hero = () => {
     'Machine Learning Engineer',
     'Python Developer'
   ];
+
+  // Animation sequence for Hello text and emoji
+  useEffect(() => {
+    const timer1 = setTimeout(() => {
+      setAnimationState('emoji');
+    }, 2000); // Show "Hello" for 2 seconds, then transition to emoji
+
+    const timer2 = setTimeout(() => {
+      setAnimationState('hello');
+    }, 4500); // Show emoji for 2.5 seconds, then transition back to "Hello"
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -50,7 +67,28 @@ const Hero = () => {
         <div className="space-y-8">
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-in-up">
-              Hello, I'm{' '}
+              <span className="relative inline-block">
+                <span 
+                  className={`transition-all duration-500 ease-in-out ${
+                    animationState === 'hello' 
+                      ? 'opacity-100' 
+                      : 'opacity-0'
+                  }`}
+                >
+                  Hello,
+                </span>
+                <span 
+                  className={`absolute inset-0 transition-all duration-500 ease-in-out ${
+                    animationState === 'emoji' 
+                      ? 'opacity-100 animate-wiggle' 
+                      : 'opacity-0'
+                  } text-6xl sm:text-7xl lg:text-8xl`}
+                >
+                  👋
+                </span>
+              </span>
+              <br />
+              I'm{' '}
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Vedant Dindore
               </span>
