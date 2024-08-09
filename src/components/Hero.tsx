@@ -87,10 +87,11 @@ const Hero = () => {
                   👋
                 </span>
               </span>
-              <br />
-              I'm{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Vedant Dindore
+              <span className="block mt-6">
+                I'm{' '}
+                <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  Vedant Dindore
+                </span>
               </span>
             </h1>
             

@@ -313,6 +313,37 @@ html {
   }
 }
 
+/* Technology Ribbon Animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-scroll-left-slow {
+  animation: scroll-left 15s linear infinite;
+}
+
+.animate-scroll-right-slow {
+  animation: scroll-right 18s linear infinite;
+}
+
+.animate-scroll-left-slower {
+  animation: scroll-left 22s linear infinite;
+}
+
 /* Loading states */
 .loading {
   position: relative;

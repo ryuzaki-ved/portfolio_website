@@ -83,18 +83,60 @@ const Skills = () => {
         {/* Additional Technologies */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-white text-center mb-8">Other Technologies & Tools</h3>
-          <div className="flex flex-wrap justify-center gap-4" data-stagger>
-            {[
-              'Docker', 'AWS', 'REST APIs', 'GraphQL', 'Redis', 'Jupyter',
-              'TensorFlow', 'PyTorch', 'Flask', 'Django', 'Express.js', 'Postman'
-            ].map((tech, index) => (
-              <span
-                key={index}
-                className="bg-gradient-to-r from-gray-700 to-gray-800 text-gray-300 px-4 py-2 rounded-full border border-gray-600 hover:border-purple-500/50 btn-hover"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="space-y-6" data-stagger>
+            {/* First Ribbon - Left to Right */}
+            <div className="overflow-hidden whitespace-nowrap">
+              <div className="inline-block animate-scroll-left-slow">
+                {['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins']
+                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
+                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
+                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
+                  .map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-3 rounded-full border border-blue-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-blue-400/50"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Second Ribbon - Right to Left */}
+            <div className="overflow-hidden whitespace-nowrap">
+              <div className="inline-block animate-scroll-right-slow">
+                {['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib']
+                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
+                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
+                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
+                  .map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-gradient-to-r from-green-600 to-teal-700 text-white px-6 py-3 rounded-full border border-green-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-green-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-green-400/50"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Third Ribbon - Left to Right (Slower) */}
+            <div className="overflow-hidden whitespace-nowrap">
+              <div className="inline-block animate-scroll-left-slower">
+                {['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code']
+                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
+                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
+                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
+                  .map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-gradient-to-r from-purple-600 to-pink-700 text-white px-6 py-3 rounded-full border border-purple-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-purple-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-purple-400/50"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
