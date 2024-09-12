@@ -26,7 +26,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      value: 'vedant.dindore@email.com',
+      value: 'dindorevedant28@email.com',
       link: 'mailto:vedant.dindore@email.com'
     },
     {

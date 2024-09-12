@@ -1,94 +1,113 @@
 import React from 'react';
-import { Code, Database, Brain, Trophy } from 'lucide-react';
+import { Code, Database, Brain, Trophy, Lightbulb, Users } from 'lucide-react';
 
 const About = () => {
   const highlights = [
     {
-      icon: <Code className="w-8 h-8" />,
+      icon: <Code className="w-5 h-5" />,
       title: 'Full Stack Development',
-      description: 'Building modern web applications with React, Python, and cutting-edge technologies'
+      description: 'React, Python, Node.js'
     },
     {
-      icon: <Database className="w-8 h-8" />,
+      icon: <Database className="w-5 h-5" />,
       title: 'Data Engineering',
-      description: 'Working with SQL, NoSQL, and Hadoop for scalable data solutions'
+      description: 'SQL, NoSQL, Hadoop'
     },
     {
-      icon: <Brain className="w-8 h-8" />,
+      icon: <Brain className="w-5 h-5" />,
       title: 'Machine Learning',
-      description: 'Developing intelligent solutions using advanced ML algorithms and techniques'
+      description: 'TensorFlow, PyTorch, Scikit-learn'
     },
     {
-      icon: <Trophy className="w-8 h-8" />,
+      icon: <Trophy className="w-5 h-5" />,
       title: 'Problem Solving',
-      description: 'Strong foundation in algorithms and data structures with C++ expertise'
+      description: 'C++, Algorithms, DSA'
+    }
+  ];
+
+  const values = [
+    {
+      icon: <Lightbulb className="w-5 h-5" />,
+      title: 'Innovation',
+      description: 'Exploring cutting-edge technologies and creative solutions'
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      title: 'Collaboration',
+      description: 'Team player with strong communication skills'
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900" data-animation="animate-fade-in">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+    <section id="about" className="min-h-screen flex items-center justify-center bg-gray-900 py-12" data-animation="animate-fade-in">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold text-white mb-3">
             About <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Me</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            A passionate computer science graduate with a strong foundation in software development and data science
+          <p className="text-base text-gray-400 max-w-2xl mx-auto leading-relaxed mb-3">
+            Computer science graduate with hands-on experience in full-stack development, data engineering, and machine learning.
+            Completed three internships focused on building scalable solutions and delivering impactful technology projects.
+          </p>
+          <p className="text-sm text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Passionate about leveraging technology to solve real-world problems and continuously learning new skills to stay ahead in the ever-evolving tech landscape.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Story */}
-          <div className="space-y-6" data-stagger>
-            <div className="magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50">
-              <h3 className="text-2xl font-bold text-white mb-4">My Journey</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                As a recent computer science graduate, I've immersed myself in the world of technology with an 
-                insatiable curiosity for learning. My journey began with a fascination for problem-solving, 
-                which led me to explore various domains from web development to machine learning.
-              </p>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Through three meaningful internships, I've gained hands-on experience in full-stack development, 
-                data analysis, and AI/ML projects. Each experience has shaped my understanding of how technology 
-                can create meaningful impact in the real world.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                I'm passionate about building scalable solutions, working with data to derive insights, and 
-                contributing to projects that make a difference. Always eager to learn new technologies and 
-                take on challenging problems.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4" data-stagger>
-              <div className="magical-card bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-6 rounded-xl border border-blue-500/20">
-                <h4 className="text-2xl font-bold text-white mb-2">15+</h4>
-                <p className="text-gray-400">Technologies Learned</p>
-              </div>
-              <div className="magical-card bg-gradient-to-br from-green-500/10 to-blue-500/10 p-6 rounded-xl border border-green-500/20">
-                <h4 className="text-2xl font-bold text-white mb-2">3</h4>
-                <p className="text-gray-400">Internships Completed</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Highlights */}
-          <div className="space-y-6" data-stagger>
+        <div className="space-y-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" data-stagger>
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className="magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50"
+                className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-colors"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-lg text-white">
+                <div className="flex flex-col items-center text-center space-y-2">
+                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-2 rounded-lg text-white">
                     {highlight.icon}
                   </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">{highlight.title}</h4>
-                    <p className="text-gray-400 leading-relaxed">{highlight.description}</p>
+                  <h4 className="text-sm font-medium text-white leading-tight">{highlight.title}</h4>
+                  <p className="text-xs text-gray-500 leading-tight">{highlight.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" data-stagger>
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-colors"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="bg-gradient-to-br from-purple-500 to-pink-600 p-2 rounded-lg text-white flex-shrink-0">
+                    {value.icon}
+                  </div>
+                  <div className="text-left">
+                    <h4 className="text-sm font-medium text-white mb-1">{value.title}</h4>
+                    <p className="text-xs text-gray-500 leading-tight">{value.description}</p>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" data-stagger>
+            <div className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center">
+              <h4 className="text-xl font-bold text-white mb-1">15+</h4>
+              <p className="text-xs text-gray-400">Technologies</p>
+            </div>
+            <div className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center">
+              <h4 className="text-xl font-bold text-white mb-1">3</h4>
+              <p className="text-xs text-gray-400">Internships</p>
+            </div>
+            <div className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center">
+              <h4 className="text-xl font-bold text-white mb-1">10+</h4>
+              <p className="text-xs text-gray-400">Projects</p>
+            </div>
+            <div className="magical-card bg-gray-800/50 p-4 rounded-lg border border-gray-700 text-center">
+              <h4 className="text-xl font-bold text-white mb-1">2024</h4>
+              <p className="text-xs text-gray-400">Graduate</p>
+            </div>
           </div>
         </div>
       </div>
