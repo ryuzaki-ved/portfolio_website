@@ -8,9 +8,10 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const texts = [
-    'Full Stack Developer',
-    'Data Scientist',
     'Machine Learning Engineer',
+    'Data Scientist',
+    'Data Analyst',
+    'Software Engineer',
     'Python Developer'
   ];
 
