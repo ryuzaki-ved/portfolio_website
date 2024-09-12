@@ -1,194 +1,101 @@
 import React from 'react';
-import { Grid, Zap } from 'lucide-react';
+import { Code, Database, Brain, Layers, Sparkles } from 'lucide-react';
 
 const Skills = () => {
-  const [showRibbons, setShowRibbons] = React.useState(true);
-
   const skillCategories = [
     {
-      title: 'Programming Languages',
-      skills: [
-        { name: 'Python', level: 90, color: 'from-yellow-400 to-yellow-600' },
-        { name: 'C++', level: 75, color: 'from-blue-400 to-blue-600' },
-        { name: 'JavaScript', level: 85, color: 'from-yellow-300 to-yellow-500' },
-        { name: 'TypeScript', level: 78, color: 'from-blue-500 to-blue-700' }
-      ]
+      icon: <Code className="w-6 h-6" />,
+      title: 'Languages',
+      color: 'from-cyan-500 to-blue-600',
+      skills: ['Python', 'JavaScript', 'TypeScript', 'C++']
     },
     {
-      title: 'Web Technologies',
-      skills: [
-        { name: 'React', level: 92, color: 'from-cyan-400 to-cyan-600' },
-        { name: 'Node.js', level: 85, color: 'from-green-400 to-green-600' },
-        { name: 'HTML/CSS', level: 95, color: 'from-orange-400 to-orange-600' },
-        { name: 'Tailwind CSS', level: 90, color: 'from-teal-400 to-teal-600' }
-      ]
+      icon: <Brain className="w-6 h-6" />,
+      title: 'ML & AI',
+      color: 'from-orange-500 to-amber-600',
+      skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas']
     },
     {
-      title: 'Data & ML',
-      skills: [
-        { name: 'Machine Learning', level: 85, color: 'from-purple-400 to-purple-600' },
-        { name: 'Data Science', level: 88, color: 'from-pink-400 to-pink-600' },
-        { name: 'Pandas/NumPy', level: 90, color: 'from-indigo-400 to-indigo-600' },
-        { name: 'Scikit-learn', level: 82, color: 'from-red-400 to-red-600' }
-      ]
+      icon: <Layers className="w-6 h-6" />,
+      title: 'Frontend',
+      color: 'from-blue-500 to-cyan-600',
+      skills: ['React', 'HTML/CSS', 'Tailwind CSS', 'Next.js']
     },
     {
-      title: 'Databases & Tools',
-      skills: [
-        { name: 'SQL', level: 90, color: 'from-blue-400 to-blue-600' },
-        { name: 'NoSQL (MongoDB)', level: 85, color: 'from-green-400 to-green-600' },
-        { name: 'Hadoop', level: 75, color: 'from-yellow-500 to-yellow-700' },
-        { name: 'Git/GitHub', level: 92, color: 'from-gray-400 to-gray-600' }
-      ]
+      icon: <Database className="w-6 h-6" />,
+      title: 'Backend & Data',
+      color: 'from-emerald-500 to-teal-600',
+      skills: ['Node.js', 'SQL', 'MongoDB', 'Hadoop']
     }
   ];
 
-  // All technologies consolidated for the static list
-  const allTechnologies = [
-    'Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins',
-    'Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib',
-    'Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'
+  const tools = [
+    'Jupyter', 'Git', 'Redis', 'PowerBI',
+    'Flask', 'Django', 'REST APIs', 'AWS', 'GraphQL',
+    'Express.js', 'Postman', 'Figma', 'OpenCV'
   ];
 
   return (
-    <section id="skills" className="py-20 bg-black" data-animation="animate-fade-in">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Technical <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Skills</span>
+    <section id="skills" className="min-h-screen flex items-center justify-center bg-black py-12" data-animation="animate-fade-in">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-3">
+            Technical <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Arsenal</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            A comprehensive toolkit built through continuous learning and hands-on experience
+          <p className="text-base text-gray-400 max-w-2xl mx-auto">
+            Crafting innovative solutions with modern technologies
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10" data-stagger>
+          {skillCategories.map((category, index) => (
             <div
-              key={categoryIndex}
-              className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-purple-500/50"
-              data-stagger
+              key={index}
+              className="magical-card group relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:scale-105"
             >
-              <h3 className="text-2xl font-bold text-white mb-8 text-center">{category.title}</h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-gray-400 text-sm">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
-                      <div
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full animate-skill-bar-fill hover:animate-pulse`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}></div>
+
+              <div className="relative z-10">
+                <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${category.color} mb-4 shadow-lg`}>
+                  <div className="text-white">
+                    {category.icon}
                   </div>
-                ))}
+                </div>
+
+                <h3 className="text-lg font-bold text-white mb-3">{category.title}</h3>
+
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 bg-gray-800/80 border border-gray-700 rounded-full text-xs text-gray-300 hover:border-gray-600 hover:bg-gray-700/80 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Additional Technologies */}
-        <div className="mt-16">
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <h3 className="text-2xl font-bold text-white">Other Technologies & Tools</h3>
-            <button
-              onClick={() => setShowRibbons(!showRibbons)}
-              className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-2 rounded-full font-medium btn-hover text-sm transition-all duration-300"
-            >
-              {showRibbons ? (
-                <>
-                  <Grid size={16} />
-                  Show List
-                </>
-              ) : (
-                <>
-                  <Zap size={16} />
-                  Show Ribbons
-                </>
-              )}
-            </button>
+        <div className="magical-card bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-stagger>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <h3 className="text-lg font-bold text-white text-center">Tools & Platforms</h3>
+            <Sparkles className="w-5 h-5 text-cyan-400" />
           </div>
 
-          {showRibbons ? (
-            <div className="space-y-6" data-stagger>
-            {/* First Ribbon - Left to Right */}
-            <div className="overflow-hidden whitespace-nowrap">
-              <div className="inline-block animate-scroll-left-slow">
-                {['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins']
-                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
-                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
-                  .concat(['Docker', 'AWS', 'REST APIs', 'GraphQL', 'Kubernetes', 'Jenkins'])
-                  .map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-3 rounded-full border border-blue-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-blue-400/50"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Second Ribbon - Right to Left */}
-            <div className="overflow-hidden whitespace-nowrap">
-              <div className="inline-block animate-scroll-right-slow">
-                {['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib']
-                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
-                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
-                  .concat(['Redis', 'Jupyter', 'TensorFlow', 'PyTorch', 'OpenCV', 'Matplotlib'])
-                  .map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-gradient-to-r from-green-600 to-teal-700 text-white px-6 py-3 rounded-full border border-green-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-green-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-green-400/50"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Third Ribbon - Left to Right (Slower) */}
-            <div className="overflow-hidden whitespace-nowrap">
-              <div className="inline-block animate-scroll-left-slower">
-                {['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code']
-                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
-                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
-                  .concat(['Flask', 'Django', 'Express.js', 'Postman', 'Figma', 'VS Code'])
-                  .map((tech, index) => (
-                  <span
-                    key={index}
-                    className="bg-gradient-to-r from-purple-600 to-pink-700 text-white px-6 py-3 rounded-full border border-purple-500/30 mx-3 inline-block font-medium shadow-lg hover:shadow-purple-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer hover:border-purple-400/50"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            </div>
-          ) : (
-            <div className="max-w-4xl mx-auto" data-stagger>
-              <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl border border-gray-700">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  {allTechnologies.map((tech, index) => (
-                    <div
-                      key={index}
-                      className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-center font-medium shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-600 hover:border-purple-500/50"
-                    >
-                      {tech}
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 text-center">
-                  <p className="text-gray-400 text-sm">
-                    Click on any technology to learn more about my experience with it
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+          <div className="flex flex-wrap justify-center gap-3">
+            {tools.map((tool, index) => (
+              <span
+                key={index}
+                className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 rounded-lg text-sm text-gray-300 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-105 transition-all duration-300 cursor-default"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
