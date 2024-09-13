@@ -48,7 +48,7 @@ const Footer = () => {
                 <span className="font-medium">Email:</span> dindorevedant28@email.com
               </p>
               <p className="text-gray-400">
-                <span className="font-medium">Location:</span> Pune, India
+                <span className="font-medium">Location:</span> Pune, Maharashtra, India
               </p>
               <p className="text-gray-400">
                 <span className="font-medium">Status:</span> Open to opportunities

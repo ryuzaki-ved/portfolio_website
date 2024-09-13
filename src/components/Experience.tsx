@@ -6,7 +6,7 @@ const Experience = () => {
     {
       title: 'Data Science Intern',
       company: 'TechCorp Analytics',
-      location: 'San Francisco, CA',
+      location: 'Pune, Maharashtra, India',
       duration: 'Jun 2024 - Aug 2024',
       type: 'Remote',
       description: [

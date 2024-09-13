@@ -1,23 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
+  const handleSendMessage = () => {
+    const recipientEmail = 'dindorevedant28@email.com';
+    window.location.href = `mailto:${recipientEmail}`;
   };
 
   const contactInfo = [
@@ -31,15 +18,15 @@ const Contact = () => {
     {
       icon: <Phone className="w-5 h-5" />,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+91 88058-32334',
+      link: 'tel:+918805832334',
       color: 'from-emerald-500 to-teal-600'
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: 'https://maps.google.com',
+      value: 'Pune, Maharashtra, India',
+      link: 'https://www.google.com/maps/place/Pune,+Maharashtra/@18.5245986,73.780566,12z/data=!3m1!4b1!4m6!3m5!1s0x3bc2bf2e67461101:0x828d43bf9d9ee343!8m2!3d18.5246091!4d73.8786239!16zL20vMDE1eTJx?entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D',
       color: 'from-orange-500 to-amber-600'
     }
   ];
@@ -48,12 +35,12 @@ const Contact = () => {
     {
       icon: <Github className="w-5 h-5" />,
       name: 'GitHub',
-      url: 'https://github.com'
+      url: 'https://github.com/ryuzaki-ved'
     },
     {
       icon: <Linkedin className="w-5 h-5" />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com'
+      url: 'www.linkedin.com/in/vedant-dindore'
     },
     {
       icon: <Twitter className="w-5 h-5" />,
@@ -103,57 +90,18 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300" data-stagger>
-            <h3 className="text-lg font-bold text-white mb-4">Send a Message</h3>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 text-sm"
-                  placeholder="Your Name"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 text-sm"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 resize-none text-sm"
-                  placeholder="Your message..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg btn-hover flex items-center justify-center gap-2 transition-all duration-300 text-sm"
-              >
-                <Send size={16} />
-                Send Message
-              </button>
-            </form>
+          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 flex flex-col justify-center items-center" data-stagger>
+            <h3 className="text-lg font-bold text-white mb-6 text-center">Ready to Connect?</h3>
+            <button
+              onClick={handleSendMessage}
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-lg btn-hover flex items-center justify-center gap-2 transition-all duration-300 text-sm shadow-lg hover:shadow-cyan-500/50"
+            >
+              <Send size={18} />
+              Send Message
+            </button>
+            <p className="text-gray-400 text-xs mt-4 text-center">
+              Click to open your email client
+            </p>
           </div>
 
           <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 flex flex-col" data-stagger>
