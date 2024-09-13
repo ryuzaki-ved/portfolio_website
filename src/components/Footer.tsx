@@ -45,10 +45,10 @@ const Footer = () => {
             <h4 className="text-white font-semibold">Let's Connect</h4>
             <div className="space-y-2">
               <p className="text-gray-400">
-                <span className="font-medium">Email:</span> vedant.dindore@email.com
+                <span className="font-medium">Email:</span> dindorevedant28@email.com
               </p>
               <p className="text-gray-400">
-                <span className="font-medium">Location:</span> San Francisco, CA
+                <span className="font-medium">Location:</span> Pune, India
               </p>
               <p className="text-gray-400">
                 <span className="font-medium">Status:</span> Open to opportunities

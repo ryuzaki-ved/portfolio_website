@@ -5,7 +5,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
 
@@ -18,202 +17,171 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
   };
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-5 h-5" />,
       title: 'Email',
       value: 'dindorevedant28@email.com',
-      link: 'mailto:vedant.dindore@email.com'
+      link: 'mailto:dindorevedant28@email.com',
+      color: 'from-cyan-500 to-blue-600'
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-5 h-5" />,
       title: 'Phone',
       value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      link: 'tel:+15551234567',
+      color: 'from-emerald-500 to-teal-600'
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <MapPin className="w-5 h-5" />,
       title: 'Location',
       value: 'San Francisco, CA',
-      link: 'https://maps.google.com'
+      link: 'https://maps.google.com',
+      color: 'from-orange-500 to-amber-600'
     }
   ];
 
   const socialLinks = [
     {
-      icon: <Github className="w-6 h-6" />,
+      icon: <Github className="w-5 h-5" />,
       name: 'GitHub',
-      url: 'https://github.com',
-      color: 'hover:text-gray-400'
+      url: 'https://github.com'
     },
     {
-      icon: <Linkedin className="w-6 h-6" />,
+      icon: <Linkedin className="w-5 h-5" />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com',
-      color: 'hover:text-blue-400'
+      url: 'https://linkedin.com'
     },
     {
-      icon: <Twitter className="w-6 h-6" />,
+      icon: <Twitter className="w-5 h-5" />,
       name: 'Twitter',
-      url: 'https://twitter.com',
-      color: 'hover:text-sky-400'
+      url: 'https://twitter.com'
     },
     {
-      icon: <MessageCircle className="w-6 h-6" />,
+      icon: <MessageCircle className="w-5 h-5" />,
       name: 'Discord',
-      url: 'https://discord.com',
-      color: 'hover:text-purple-400'
+      url: 'https://discord.com'
     }
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-900" data-animation="animate-fade-in">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Get In <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Touch</span>
+    <section id="contact" className="min-h-screen flex items-center justify-center bg-black py-12" data-animation="animate-fade-in">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-white mb-3">
+            Get In <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to start the next chapter of my career. Let's discuss how I can contribute to your team!
+          <p className="text-base text-gray-400 max-w-2xl mx-auto">
+            Ready to discuss opportunities or collaborate on exciting projects
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8" data-stagger>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                I'm actively seeking full-time opportunities where I can apply my skills in software development, 
-                data science, and machine learning. Whether you have a position available or just want to chat 
-                about technology, I'd love to hear from you!
-              </p>
-            </div>
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {contactInfo.map((info, index) => (
+            <a
+              key={index}
+              href={info.link}
+              className="magical-card group relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 overflow-hidden"
+              data-stagger
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <a
-                  key={index}
-                  href={info.link}
-                  className="flex items-center space-x-4 magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50"
-                >
-                  <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-3 rounded-lg text-white">
+              <div className="relative z-10">
+                <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${info.color} mb-3 shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                  <div className="text-white">
                     {info.icon}
                   </div>
-                  <div>
-                    <h4 className="text-white font-semibold">{info.title}</h4>
-                    <p className="text-gray-400">{info.value}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h4 className="text-white font-semibold mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    className={`bg-gray-800 p-3 rounded-lg text-gray-400 ${social.color} btn-hover`}
-                    aria-label={social.name}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="magical-card bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700" data-stagger>
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300 focus:scale-105"
-                    placeholder="Your Name"
-                  />
                 </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-gray-300 font-medium mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300 focus:scale-105"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
+                <h4 className="text-white font-semibold mb-1 text-sm">{info.title}</h4>
+                <p className="text-gray-400 text-sm">{info.value}</p>
               </div>
+            </a>
+          ))}
+        </div>
 
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300" data-stagger>
+            <h3 className="text-lg font-bold text-white mb-4">Send a Message</h3>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="subject" className="block text-gray-300 font-medium mb-2">
-                  Subject *
-                </label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300 focus:scale-105"
-                  placeholder="What's this about?"
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 text-sm"
+                  placeholder="Your Name"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-gray-300 font-medium mb-2">
-                  Message *
-                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 text-sm"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300 focus:scale-105 resize-none"
-                  placeholder="Tell me about your project, opportunity, or just say hello!"
+                  rows={4}
+                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all duration-300 resize-none text-sm"
+                  placeholder="Your message..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-lg btn-hover flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-purple-500/30 animate-glow"
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg btn-hover flex items-center justify-center gap-2 transition-all duration-300 text-sm"
               >
-                <Send size={20} />
+                <Send size={16} />
                 Send Message
               </button>
             </form>
+          </div>
 
-            <div className="mt-6 text-center">
-              <p className="text-gray-400 text-sm">
-                I'll get back to you within 24 hours!
+          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 flex flex-col" data-stagger>
+            <h3 className="text-lg font-bold text-white mb-4">Connect With Me</h3>
+
+            <p className="text-sm text-gray-400 leading-relaxed mb-6">
+              I'm actively seeking opportunities in software development, data science, and machine learning. Let's connect and explore how we can work together!
+            </p>
+
+            <div className="grid grid-cols-4 gap-3 mt-auto">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  className="group relative bg-gray-800 hover:bg-gray-700 p-4 rounded-lg text-gray-400 transition-all duration-300 overflow-hidden flex items-center justify-center"
+                  aria-label={social.name}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10 text-gray-400 group-hover:text-white transform transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12">
+                    {social.icon}
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <p className="text-gray-400 text-xs text-center">
+                Available for full-time opportunities and freelance projects
               </p>
             </div>
           </div>
