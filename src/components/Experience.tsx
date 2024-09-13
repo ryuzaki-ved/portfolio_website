@@ -51,7 +51,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center bg-black py-12" data-animation="animate-fade-in">
+    <section id="experience" className="min-h-screen flex items-center justify-center bg-black py-20 scroll-mt-16" data-animation="animate-fade-in">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-3">
@@ -63,7 +63,11 @@ const Experience = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-orange-500 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 transform md:-translate-x-1/2 overflow-hidden rounded-full">
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500 via-emerald-500 via-blue-500 to-orange-500 opacity-40"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-400 via-emerald-400 via-blue-400 to-orange-400 animate-timeline-flow"></div>
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-cyan-400 to-transparent blur-sm animate-timeline-glow"></div>
+          </div>
 
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -74,9 +78,11 @@ const Experience = () => {
                 } flex-col md:flex-row`}
                 data-stagger
               >
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full transform md:-translate-x-1/2 z-10 border-4 border-black group">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} rounded-full animate-pulse`}></div>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} rounded-full blur-md opacity-50`}></div>
+                <div className="absolute left-4 md:left-1/2 w-5 h-5 transform md:-translate-x-1/2 z-10">
+                  <div className="absolute inset-0 rounded-full bg-black border-2 border-gray-800"></div>
+                  <div className={`absolute inset-0.5 bg-gradient-to-br ${exp.color} rounded-full animate-pulse`}></div>
+                  <div className={`absolute -inset-1 bg-gradient-to-br ${exp.color} rounded-full blur-md opacity-60 animate-pulse`}></div>
+                  <div className={`absolute -inset-2 bg-gradient-to-br ${exp.color} rounded-full blur-lg opacity-30 animate-ping`} style={{animationDuration: '3s'}}></div>
                 </div>
 
                 <div className={`ml-12 md:ml-0 w-full md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
