@@ -12,75 +12,52 @@ const Projects = () => {
   ];
 
   const projects = [
+    // Data Analysis
     {
-      title: 'E-Commerce Analytics Platform',
+      title: 'Options Data Analytics Platform',
       category: 'Data Analysis',
-      description: 'A comprehensive analytics platform that processes customer data to provide business insights, featuring real-time dashboards and automated reporting.',
+      description: 'Automated pipeline for NSE EOD options data (100K+ daily records) with validation; SQL/Pandas analytics to surface pricing patterns, volatility trends, and OI anomalies; interactive dashboard cut manual analysis by ~62%.',
       image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Python', 'Pandas', 'PostgreSQL', 'Chart.js', 'PowerBI'],
+      technologies: ['Python', 'SQL', 'DuckDB', 'Pandas', 'React'],
       github: 'https://github.com',
       demo: 'https://demo.example.com'
     },
     {
-      title: 'Social Media Sentiment Analyzer',
+      title: 'Customer Segmentation Analysis',
       category: 'Data Analysis',
-      description: 'Advanced sentiment analysis tool that processes social media data to provide insights into public opinion trends and visualization.',
+      description: 'Preprocessed 50K+ transactions; RFM features and K-means produced 11 customer segments; Power BI dashboards highlighted CLV/retention with top 12% driving ~45% revenue; validated with hypothesis testing and recommendations.',
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Python', 'NLTK', 'Pandas', 'Twitter API', 'Matplotlib'],
+      technologies: ['Python', 'SQL', 'Power BI', 'Pandas', 'Scikit-learn'],
       github: 'https://github.com',
       demo: 'https://demo.example.com'
     },
+    // Machine Learning
     {
-      title: 'ML-Powered Image Classifier',
+      title: 'Stock Forecasting Models',
       category: 'Machine Learning',
-      description: 'Deep learning application that classifies images with 94% accuracy using convolutional neural networks and custom CNN architecture.',
-      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Python', 'TensorFlow', 'OpenCV', 'Keras', 'NumPy'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
-    },
-    {
-      title: 'Predictive Maintenance Model',
-      category: 'Machine Learning',
-      description: 'Machine learning model that predicts equipment failures before they occur, reducing downtime and maintenance costs.',
+      description: 'Built traditional ML and deep learning models (Scikit-learn, LSTM) on engineered market features to forecast price/action; evaluated with walk-forward validation and error metrics.',
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Python', 'Scikit-learn', 'PyTorch', 'Flask', 'Docker'],
+      technologies: ['Python', 'Scikit-learn', 'TensorFlow', 'LSTM', 'NumPy'],
       github: 'https://github.com',
       demo: 'https://demo.example.com'
     },
+    // JS (React, Node, etc.)
     {
-      title: 'Task Management System',
+      title: 'Progress Tracker (Gamified)',
       category: 'JS (React, Node, etc.)',
-      description: 'Scalable task management system built with microservices architecture, featuring real-time collaboration and automated workflows.',
+      description: 'Advanced progress tracker with gamification: streaks, XP, achievements, and goals; responsive UI and persistent storage.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'Express.js'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
       github: 'https://github.com',
       demo: 'https://demo.example.com'
     },
+    // Freelance
     {
-      title: 'Real-Time Chat Application',
-      category: 'JS (React, Node, etc.)',
-      description: 'Full-featured chat application with real-time messaging, file sharing, and user presence indicators using WebSockets.',
-      image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'Socket.io', 'Redis', 'JWT'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
-    },
-    {
-      title: 'E-Learning Platform',
+      title: 'Options Model – Real-Time Signals',
       category: 'Freelance Projects',
-      description: 'Complete e-learning platform with course management, video streaming, progress tracking, and payment integration.',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS S3'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
-    },
-    {
-      title: 'Restaurant Management System',
-      category: 'Freelance Projects',
-      description: 'Full-stack restaurant management solution with POS, inventory tracking, order management, and analytics dashboard.',
-      image: 'https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Django', 'PostgreSQL', 'Redux', 'Chart.js'],
+      description: 'Real-time options analytics over large datasets producing buy/sell signals; LSTM and feature-rich pipelines; streaming ingestion with latency-aware processing.',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['Python', 'TensorFlow', 'LSTM', 'Kafka', 'FastAPI'],
       github: 'https://github.com',
       demo: 'https://demo.example.com'
     }
