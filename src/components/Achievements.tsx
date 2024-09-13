@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy } from 'lucide-react';
+import { Award } from 'lucide-react';
 
 const Achievements = () => {
   const achievements = [
@@ -34,8 +34,8 @@ const Achievements = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${achievement.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
               <div className="relative z-10 flex items-start gap-6">
-                <div className={`flex-shrink-0 inline-flex p-4 rounded-xl bg-gradient-to-br ${achievement.color} shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 animate-trophy-bounce`}>
-                  <Trophy className="w-8 h-8 text-white" />
+                <div className={`flex-shrink-0 inline-flex p-4 rounded-xl bg-gradient-to-br ${achievement.color} shadow-xl transform transition-all duration-300 group-hover:scale-110`}>
+                  <Award className="w-8 h-8 text-white" />
                 </div>
 
                 <div className="flex-1">

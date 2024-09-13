@@ -19,6 +19,7 @@ const Header = () => {
     { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
+    { href: '#achievements', label: 'Achievements' },
     { href: '#contact', label: 'Contact' }
   ];
 
@@ -30,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent hover:animate-pulse cursor-pointer">
-              DevPortfolio
+              Portfolio
             </h1>
           </div>
 
