@@ -4,49 +4,74 @@ import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Data Science Intern',
-      company: 'TechCorp Analytics',
-      location: 'Pune, Maharashtra, India',
-      duration: 'Jun 2024 - Aug 2024',
+      title: 'Machine Learning Engineer',
+      company: 'Gradient Labs',
+      location: 'Mumbai, Maharashtra, India',
+      duration: 'Feb 2025 - May 2025',
       type: 'Remote',
       description: [
-        'Developed machine learning models for customer behavior prediction with 87% accuracy',
-        'Built data pipelines using Python, Pandas, and SQL to process 1M+ records daily',
-        'Created interactive dashboards using Tableau and Power BI for stakeholder reporting',
-        'Collaborated with senior data scientists on feature engineering and model optimization'
+        'Built and trained CNN, LSTM, and regression models using TensorFlow and Scikit-learn on 10-30GB datasets for fraudulent trade detection and e-commerce forecasting, achieving 83% prediction accuracy',
+        'Optimized data preprocessing pipeline and model training processes, reducing training time by 12.8% through hyperparameter tuning and efficient data handling across multiple deep learning architectures',
+        'Executed exploratory data analysis and feature engineering on large-scale datasets (10-30GB), building machine learning models for fraud detection, sales prediction, and time-series forecasting applications'
       ],
-      technologies: ['Python', 'Scikit-learn', 'Pandas', 'SQL', 'Tableau'],
+      technologies: ['Machine Learning Algorithms', 'Python (Programming Language)'],
       color: 'from-cyan-500 to-blue-600'
     },
     {
-      title: 'Full Stack Developer Intern',
-      company: 'StartupXYZ',
-      location: 'Austin, TX',
-      duration: 'Jan 2024 - May 2024',
+      title: 'Data Analytics',
+      company: 'Mehta Financial Corporation',
+      location: 'Pune, Maharashtra, India',
+      duration: 'Sep 2024 - Jan 2025',
       type: 'Hybrid',
       description: [
-        'Built responsive web applications using React, Node.js, and MongoDB',
-        'Implemented RESTful APIs serving 10k+ daily requests with optimal performance',
-        'Integrated third-party payment systems and authentication services',
-        'Participated in agile development cycles and code reviews with senior developers'
+        'Automated ETL pipeline processing 50K+ daily stock and options records using Python & PostgreSQL, reducing manual data processing time by 57% for trading operations',
+        'Built predictive models (Random Forest, XGBoost) on 500K+ historical market records achieving 78% accuracy for trend classification; implemented anomaly detection for pricing irregularities',
+        'Conducted exploratory data analysis on options data using Python (pandas, NumPy) and created visualization dashboards tracking price-volume correlations for daily market review'
       ],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'REST APIs'],
+      technologies: ['Data Analysis', 'Machine Learning', 'Time Series Forecasting', 'Quantitative Research', 'Model Evaluation'],
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      title: 'Software Engineering Intern',
-      company: 'InnovateTech Solutions',
-      location: 'Seattle, WA',
-      duration: 'Jun 2023 - Aug 2023',
-      type: 'On-site',
+      title: 'OptionFlowX',
+      company: 'Fiverr',
+      location: 'Pune, Maharashtra, India',
+      duration: 'Feb 2024 - Apr 2024',
+      type: 'Remote',
       description: [
-        'Developed C++ applications for data processing and algorithm optimization',
-        'Worked on database design and optimization using SQL and NoSQL technologies',
-        'Contributed to open-source projects and internal tool development',
-        'Gained experience with version control, testing frameworks, and CI/CD pipelines'
+        'Designed and developed an interactive web app to visualize live and historical options data with advanced charts like heatmaps, IV skew, and OI ladders',
+        'Used Python (Plotly, Dash) and integrated APIs to fetch real-time market data',
+        'Delivered a dashboard used by retail traders to make informed decisions on options flow and volatility'
       ],
-      technologies: ['C++', 'SQL', 'NoSQL', 'Git', 'Linux'],
+      technologies: ['Data Visualization', 'Python', 'Real-Time Market Data APIs', 'Interactive Charting Libraries (React.js)'],
       color: 'from-orange-500 to-amber-600'
+    },
+    {
+      title: 'Machine Learning Engineer',
+      company: 'Motilal Oswal Financial Services Ltd',
+      location: 'Pune, Maharashtra, India',
+      duration: 'Apr 2023 - Aug 2023',
+      type: 'Hybrid',
+      description: [
+        'Developed and optimized machine learning models for options market forecasting, improving prediction accuracy by 35%',
+        'Conducted data preprocessing, feature engineering, and model evaluation using real-time financial datasets',
+        'Delivered actionable insights to assist traders and analysts, enhancing strategic decision-making and risk management'
+      ],
+      technologies: ['Machine Learning', 'Time Series Forecasting', 'Python', 'Options Market Analytics', 'Real-Time Data Processing', 'Predictive Modeling'],
+      color: 'from-purple-500 to-pink-600'
+    },
+    {
+      title: 'Software Developer',
+      company: 'Sutherland',
+      location: 'London Area, United Kingdom',
+      duration: 'Aug 2022 - Nov 2022',
+      type: 'Remote',
+      description: [
+        'Designed and optimized backend algorithms for clients in banking, research, and proprietary software domains',
+        'Improved data processing speed and system performance, achieving a 18% increase in overall efficiency',
+        'Collaborated with cross-functional teams to implement scalable backend solutions tailored to diverse business needs'
+      ],
+      technologies: ['Algorithm Optimization', 'Python', 'REST APIs', 'SQL / NoSQL Databases', 'Backend Architecture', 'Scalable Systems Design'],
+      color: 'from-indigo-500 to-purple-600'
     }
   ];
 
@@ -64,8 +89,8 @@ const Experience = () => {
 
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 transform md:-translate-x-1/2 overflow-hidden rounded-full">
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500 via-emerald-500 via-blue-500 to-orange-500 opacity-40"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-400 via-emerald-400 via-blue-400 to-orange-400 animate-timeline-flow"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500 via-emerald-500 via-orange-500 via-purple-500 to-indigo-500 opacity-40"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-400 via-emerald-400 via-orange-400 via-purple-400 to-indigo-400 animate-timeline-flow"></div>
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-cyan-400 to-transparent blur-sm animate-timeline-glow"></div>
           </div>
 
