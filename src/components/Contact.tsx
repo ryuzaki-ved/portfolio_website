@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 
 const Contact = () => {
   const handleSendMessage = () => {
@@ -41,16 +41,6 @@ const Contact = () => {
       icon: <Linkedin className="w-5 h-5" />,
       name: 'LinkedIn',
       url: 'www.linkedin.com/in/vedant-dindore'
-    },
-    {
-      icon: <Twitter className="w-5 h-5" />,
-      name: 'Twitter',
-      url: 'https://twitter.com'
-    },
-    {
-      icon: <MessageCircle className="w-5 h-5" />,
-      name: 'Discord',
-      url: 'https://discord.com'
     }
   ];
 
@@ -111,7 +101,7 @@ const Contact = () => {
               I'm actively seeking opportunities in software development, data science, and machine learning. Let's connect and explore how we can work together!
             </p>
 
-            <div className="grid grid-cols-4 gap-3 mt-auto">
+            <div className="grid grid-cols-2 gap-3 mt-auto">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
