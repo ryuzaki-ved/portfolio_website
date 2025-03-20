@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, ExternalLink, Code, Database, Brain, TrendingUp, Briefcase } from 'lucide-react';
+import { Github, ExternalLink, Code, Brain, TrendingUp, Briefcase } from 'lucide-react';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('Data Analysis');
@@ -19,8 +19,8 @@ const Projects = () => {
       description: 'Automated pipeline for NSE EOD options data (100K+ daily records) with validation; SQL/Pandas analytics to surface pricing patterns, volatility trends, and OI anomalies; interactive dashboard cut manual analysis by ~62%.',
       image: 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=600',
       technologies: ['Python', 'SQL', 'DuckDB', 'Pandas', 'React'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
+      github: 'https://github.com/ryuzaki-ved/NSE-EOD-Data-Analyzer',
+      demo: 'https://nse-eod-data-analyzer.vercel.app/'
     },
     {
       title: 'Customer Segmentation Analysis',
@@ -28,8 +28,8 @@ const Projects = () => {
       description: 'Preprocessed 50K+ transactions; RFM features and K-means produced 11 customer segments; Power BI dashboards highlighted CLV/retention with top 12% driving ~45% revenue; validated with hypothesis testing and recommendations.',
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600',
       technologies: ['Python', 'SQL', 'Power BI', 'Pandas', 'Scikit-learn'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
+      github: 'https://app.powerbi.com/view?r=eyJrIjoiOWZhZmE1NDUtMGVmMi00N2VhLWE0MDQtZGIwNDczNTIyZmRkIiwidCI6ImRkNTJlM2VkLWE1MDYtNDQ1Yy1hZjQ4LTQwYjI5ZTY4NWQzZiJ9',
+      demo: 'https://app.powerbi.com/view?r=eyJrIjoiOWZhZmE1NDUtMGVmMi00N2VhLWE0MDQtZGIwNDczNTIyZmRkIiwidCI6ImRkNTJlM2VkLWE1MDYtNDQ1Yy1hZjQ4LTQwYjI5ZTY4NWQzZiJ9'
     },
     // Machine Learning
     {
@@ -38,8 +38,17 @@ const Projects = () => {
       description: 'Built traditional ML and deep learning models (Scikit-learn, LSTM) on engineered market features to forecast price/action; evaluated with walk-forward validation and error metrics.',
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
       technologies: ['Python', 'Scikit-learn', 'TensorFlow', 'LSTM', 'NumPy'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
+      github: 'https://github.com/ryuzaki-ved/stock_ml_model',
+      demo: 'https://github.com/ryuzaki-ved/stock_ml_model'
+    },
+    {
+      title: 'CKD Detection using ML',
+      category: 'Machine Learning',
+      description: 'Neural network to predict Chronic Kidney Disease using the UCI CKD dataset. Includes data cleaning, imputation, feature engineering, class balancing, model training with Keras, and SHAP explainability.',
+      image: 'https://images.pexels.com/photos/3845762/pexels-photo-3845762.jpeg?auto=compress&cs=tinysrgb&w=600',
+      technologies: ['Python', 'TensorFlow', 'Pandas', 'Scikit-learn', 'SHAP'],
+      github: 'https://github.com/ryuzaki-ved/ckd_detection',
+      // demo: 'https://github.com/ryuzaki-ved/ckd_detection'
     },
     // JS (React, Node, etc.)
     {
@@ -48,8 +57,8 @@ const Projects = () => {
       description: 'Advanced progress tracker with gamification: streaks, XP, achievements, and goals; responsive UI and persistent storage.',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
       technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
+      github: 'https://github.com/ryuzaki-ved/progress_tracker',
+      demo: 'https://progress-tracker-theta-two.vercel.app/'
     },
     // Freelance
     {
@@ -58,8 +67,8 @@ const Projects = () => {
       description: 'Real-time options analytics over large datasets producing buy/sell signals; LSTM and feature-rich pipelines; streaming ingestion with latency-aware processing.',
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600',
       technologies: ['Python', 'TensorFlow', 'LSTM', 'Kafka', 'FastAPI'],
-      github: 'https://github.com',
-      demo: 'https://demo.example.com'
+      // github: 'https://github.com',
+      // demo: 'https://demo.example.com'
     }
   ];
 
