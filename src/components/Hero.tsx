@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Download } from 'lucide-react';
+import { ChevronDown, Download, Eye } from 'lucide-react';
 
 const Hero = () => {
   const [animationState, setAnimationState] = useState('hello');
@@ -115,14 +115,25 @@ const Hero = () => {
             >
               Get In Touch
             </a>
-            <a
-              href="/resume.pdf"
-              download="Vedant_Dindore_Resume.pdf"
-              className="border-2 border-gray-600 hover:border-white text-gray-300 hover:text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-white/5"
-            >
-              <Download size={20} />
-              Download Resume
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white px-6 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-blue-500/10 transition-all duration-300"
+              >
+                <Eye size={20} />
+                View Resume
+              </a>
+              <a
+                href="/resume.pdf"
+                download="Vedant_Dindore_Resume.pdf"
+                className="border-2 border-gray-600 hover:border-purple-400 text-gray-300 hover:text-white px-6 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-purple-500/10 transition-all duration-300"
+              >
+                <Download size={20} />
+                Download
+              </a>
+            </div>
           </div>
         </div>
       </div>
