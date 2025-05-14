@@ -1,5 +1,5 @@
-import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const handleSendMessage = () => {
@@ -40,31 +40,45 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-5 h-5" />,
       name: 'LinkedIn',
-      url: 'www.linkedin.com/in/vedant-dindore'
+      url: 'https://www.linkedin.com/in/vedant-dindore'
     }
   ];
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center bg-black py-20 scroll-mt-16" data-animation="animate-fade-in">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-12">
+    <section id="contact" className="min-h-screen flex items-center justify-center py-20 scroll-mt-16 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl font-bold text-white mb-3">
             Get In <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="text-base text-gray-400 max-w-2xl mx-auto">
             Ready to discuss opportunities or collaborate on exciting projects
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {contactInfo.map((info, index) => (
-            <a
+            <motion.a
               key={index}
               href={info.link}
-              className="magical-card group relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 overflow-hidden"
-              data-stagger
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden hover:shadow-lg hover:shadow-cyan-500/10"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
 
               <div className="relative z-10">
                 <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${info.color} mb-3 shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
@@ -73,56 +87,64 @@ const Contact = () => {
                   </div>
                 </div>
                 <h4 className="text-white font-semibold mb-1 text-sm">{info.title}</h4>
-                <p className="text-gray-400 text-sm">{info.value}</p>
+                <p className="text-gray-400 text-sm group-hover:text-cyan-400 transition-colors">{info.value}</p>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 flex flex-col justify-center items-center" data-stagger>
-            <h3 className="text-lg font-bold text-white mb-6 text-center">Ready to Connect?</h3>
-            <button
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-cyan-500/30 transition-all duration-300 flex flex-col justify-center items-center text-center"
+          >
+            <h3 className="text-xl font-bold text-white mb-6">Ready to Connect?</h3>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleSendMessage}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-4 px-8 rounded-lg btn-hover flex items-center justify-center gap-2 transition-all duration-300 text-sm shadow-lg hover:shadow-cyan-500/50"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-lg flex items-center justify-center gap-2 transition-all duration-300 text-sm shadow-lg shadow-cyan-500/25"
             >
               <Send size={18} />
               Send Message
-            </button>
-            <p className="text-gray-400 text-xs mt-4 text-center">
+            </motion.button>
+            <p className="text-gray-400 text-xs mt-4">
               Click to open your email client
             </p>
-          </div>
+          </motion.div>
 
-          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 flex flex-col" data-stagger>
-            <h3 className="text-lg font-bold text-white mb-4">Connect With Me</h3>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-cyan-500/30 transition-all duration-300 flex flex-col"
+          >
+            <h3 className="text-xl font-bold text-white mb-4">Connect With Me</h3>
 
-            <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              I'm actively seeking opportunities in software development, data science, and machine learning. Let's connect and explore how we can work together!
+            <p className="text-sm text-gray-400 leading-relaxed mb-8">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 mt-auto">
+            <div className="flex flex-col gap-4 mt-auto">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
-                  className="group relative bg-gray-800 hover:bg-gray-700 p-4 rounded-lg text-gray-400 transition-all duration-300 overflow-hidden flex items-center justify-center"
-                  aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-cyan-500/50 hover:bg-gray-800 transition-all duration-300 group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative z-10 text-gray-400 group-hover:text-white transform transition-all duration-300 group-hover:scale-110 group-hover:-rotate-12">
+                  <div className="p-2 rounded-md bg-gray-700 text-white group-hover:bg-cyan-500 transition-colors">
                     {social.icon}
                   </div>
+                  <span className="text-gray-300 font-medium group-hover:text-white transition-colors">{social.name}</span>
+                  <ExternalLink className="w-4 h-4 text-gray-500 ml-auto group-hover:text-cyan-400 transition-colors" />
                 </a>
               ))}
             </div>
-
-            <div className="mt-6 pt-6 border-t border-gray-700">
-              <p className="text-gray-400 text-xs text-center">
-                Available for full-time opportunities and freelance projects
-              </p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

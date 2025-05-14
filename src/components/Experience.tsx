@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Experience = () => {
   const experiences = [
@@ -29,7 +30,7 @@ const Experience = () => {
         'Conducted exploratory data analysis on options data using Python (pandas, NumPy) and created visualization dashboards tracking price-volume correlations for daily market review'
       ],
       technologies: ['Data Analysis', 'Machine Learning', 'Time Series Forecasting', 'Quantitative Research', 'Model Evaluation'],
-      color: 'from-emerald-500 to-teal-600'
+      color: 'from-blue-500 to-purple-600'
     },
     {
       title: 'OptionFlowX',
@@ -43,7 +44,7 @@ const Experience = () => {
         'Delivered a dashboard used by retail traders to make informed decisions on options flow and volatility'
       ],
       technologies: ['Data Visualization', 'Python', 'Real-Time Market Data APIs', 'Interactive Charting Libraries (React.js)'],
-      color: 'from-orange-500 to-amber-600'
+      color: 'from-purple-500 to-pink-600'
     },
     {
       title: 'Machine Learning Engineer',
@@ -57,7 +58,7 @@ const Experience = () => {
         'Delivered actionable insights to assist traders and analysts, enhancing strategic decision-making and risk management'
       ],
       technologies: ['Machine Learning', 'Time Series Forecasting', 'Python', 'Options Market Analytics', 'Real-Time Data Processing', 'Predictive Modeling'],
-      color: 'from-purple-500 to-pink-600'
+      color: 'from-pink-500 to-rose-600'
     },
     {
       title: 'Software Developer',
@@ -71,92 +72,104 @@ const Experience = () => {
         'Collaborated with cross-functional teams to implement scalable backend solutions tailored to diverse business needs'
       ],
       technologies: ['Algorithm Optimization', 'Python', 'REST APIs', 'SQL / NoSQL Databases', 'Backend Architecture', 'Scalable Systems Design'],
-      color: 'from-indigo-500 to-purple-600'
+      color: 'from-rose-500 to-red-600'
     }
   ];
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center bg-black py-20 scroll-mt-16" data-animation="animate-fade-in">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-3">
+    <section id="experience" className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/50 to-black/0 pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
             Work <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Experience</span>
           </h2>
           <p className="text-base text-gray-400 max-w-2xl mx-auto">
             Building expertise through meaningful internships and real-world projects
           </p>
-        </div>
+        </motion.div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 transform md:-translate-x-1/2 overflow-hidden rounded-full">
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500 via-emerald-500 via-orange-500 via-purple-500 to-indigo-500 opacity-40"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-400 via-emerald-400 via-orange-400 via-purple-400 to-indigo-400 animate-timeline-flow"></div>
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-cyan-400 to-transparent blur-sm animate-timeline-glow"></div>
+          {/* Timeline Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-800 transform md:-translate-x-1/2">
+            <motion.div 
+              initial={{ height: 0 }}
+              whileInView={{ height: '100%' }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-500"
+            ></motion.div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:flex-row`}
-                data-stagger
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`relative flex flex-col md:flex-row gap-8 ${
+                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
               >
-                <div className="absolute left-4 md:left-1/2 w-5 h-5 transform md:-translate-x-1/2 z-10">
-                  <div className="absolute inset-0 rounded-full bg-black border-2 border-gray-800"></div>
-                  <div className={`absolute inset-0.5 bg-gradient-to-br ${exp.color} rounded-full animate-pulse`}></div>
-                  <div className={`absolute -inset-1 bg-gradient-to-br ${exp.color} rounded-full blur-md opacity-60 animate-pulse`}></div>
-                  <div className={`absolute -inset-2 bg-gradient-to-br ${exp.color} rounded-full blur-lg opacity-30 animate-ping`} style={{animationDuration: '3s'}}></div>
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-900 border-2 border-cyan-500 z-10 mt-6">
+                  <div className="absolute inset-0 rounded-full bg-cyan-500 animate-ping opacity-20"></div>
                 </div>
 
-                <div className={`ml-12 md:ml-0 w-full md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                  <div className="magical-card group relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                    <div className="relative z-10">
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <div className={`inline-flex p-2 rounded-lg bg-gradient-to-br ${exp.color} shadow-lg`}>
-                              <Briefcase className="w-4 h-4 text-white" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white">{exp.title}</h3>
-                          </div>
-                          <h4 className="text-sm font-semibold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">{exp.company}</h4>
-                        </div>
-                        <span className={`px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${exp.color} text-white whitespace-nowrap`}>
+                {/* Content */}
+                <div className="ml-12 md:ml-0 md:w-1/2">
+                  <div className={`magical-card group bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 ${
+                    index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
+                  }`}>
+                    <div className="flex flex-col gap-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                          {exp.title}
+                        </h3>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                           {exp.type}
                         </span>
                       </div>
 
-                      <div className="flex flex-wrap gap-3 text-gray-400 text-xs mb-4">
-                        <div className="flex items-center gap-1">
-                          <Calendar size={14} />
-                          <span>{exp.duration}</span>
+                      <div className="flex flex-col gap-2 text-sm text-gray-400">
+                        <div className="flex items-center gap-2">
+                          <Briefcase className="w-4 h-4 text-cyan-500" />
+                          <span className="text-white font-medium">{exp.company}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin size={14} />
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-cyan-500" />
                           <span>{exp.location}</span>
                         </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-cyan-500" />
+                          <span>{exp.duration}</span>
+                        </div>
                       </div>
 
-                      <div className="mb-4">
-                        <ul className="space-y-2">
-                          {exp.description.map((item, i) => (
-                            <li key={i} className="text-sm text-gray-400 leading-relaxed flex items-start">
-                              <span className={`w-1.5 h-1.5 bg-gradient-to-br ${exp.color} rounded-full mt-1.5 mr-2 flex-shrink-0`}></span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <ul className="space-y-2">
+                        {exp.description.map((desc, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-400 leading-relaxed">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0"></span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 pt-2">
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-gray-800/80 border border-gray-700 rounded-full text-xs text-gray-300 hover:border-gray-600 hover:bg-gray-700/80 transition-colors"
+                            className="px-2 py-1 text-xs rounded-md bg-gray-800 text-gray-300 border border-gray-700 group-hover:border-cyan-500/30 transition-colors"
                           >
                             {tech}
                           </span>
@@ -165,26 +178,35 @@ const Experience = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+                
+                {/* Empty space for the other side */}
+                <div className="hidden md:block md:w-1/2"></div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <div className="magical-card bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 max-w-2xl mx-auto transition-all duration-300" data-stagger>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="text-center mt-12"
+        >
+          <div className="magical-card bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 hover:border-cyan-500/30 max-w-2xl mx-auto transition-all duration-300">
             <h3 className="text-lg font-bold text-white mb-2">Ready for New Challenges</h3>
             <p className="text-sm text-gray-400 mb-4">
               Looking for full-time opportunities to apply my skills and continue growing
             </p>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold btn-hover text-sm transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold btn-hover text-sm transition-all duration-300 shadow-lg hover:shadow-cyan-500/25"
             >
               Let's Connect
               <ExternalLink size={16} />
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

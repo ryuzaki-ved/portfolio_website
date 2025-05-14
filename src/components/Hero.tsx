@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Eye } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [animationState, setAnimationState] = useState('hello');
@@ -56,18 +57,18 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float delay-300"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-500/5 rounded-full blur-2xl animate-pulse-slow"></div>
-      </div>
+      {/* Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent pointer-events-none"></div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <div className="space-y-8">
           <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight animate-slide-in-up">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight"
+            >
               <span className="relative inline-block">
                 <span 
                   className={`transition-all duration-500 ease-in-out ${
@@ -90,28 +91,43 @@ const Hero = () => {
               </span>
               <span className="block mt-6">
                 I'm{' '}
-                <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
                   Vedant Dindore
                 </span>
               </span>
-            </h1>
+            </motion.h1>
             
-            <div className="text-2xl sm:text-3xl lg:text-4xl text-gray-300 h-16 flex items-center justify-center animate-slide-in-up delay-200">
-              <span className="border-r-2 border-blue-400 pr-1">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-2xl sm:text-3xl lg:text-4xl text-gray-300 h-16 flex items-center justify-center"
+            >
+              <span className="border-r-2 border-cyan-400 pr-1">
                 {currentText}
               </span>
-            </div>
+            </motion.div>
           </div>
 
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed animate-slide-in-up delay-300">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+          >
             Passionate fresher developer specializing in full-stack development, data science, 
             and machine learning. Ready to bring innovative solutions to your team.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-up delay-400">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
             <a
               href="#contact"
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover shadow-lg hover:shadow-xl animate-glow"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg btn-hover shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
             >
               Get In Touch
             </a>
@@ -120,7 +136,7 @@ const Hero = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white px-6 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-blue-500/10 transition-all duration-300"
+                className="border-2 border-gray-600 hover:border-cyan-400 text-gray-300 hover:text-white px-6 py-4 rounded-full font-semibold text-lg btn-hover flex items-center gap-2 hover:bg-cyan-500/10 transition-all duration-300"
               >
                 <Eye size={20} />
                 View Resume
@@ -134,13 +150,18 @@ const Hero = () => {
                 Download
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-magical-float z-10 animate-slide-in-up delay-600">
-        <ChevronDown size={32} className="text-gray-400" />
-      </div>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 animate-bounce z-10"
+      >
+        <ChevronDown size={32} className="text-gray-400 hover:text-cyan-400 transition-colors" />
+      </motion.div>
     </section>
   );
 };

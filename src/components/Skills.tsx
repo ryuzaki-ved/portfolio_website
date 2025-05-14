@@ -1,5 +1,5 @@
-import React from 'react';
 import { Code, Database, Brain, Layers, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Skills = () => {
   const skillCategories = [
@@ -12,7 +12,7 @@ const Skills = () => {
     {
       icon: <Brain className="w-6 h-6" />,
       title: 'ML & AI',
-      color: 'from-orange-500 to-amber-600',
+      color: 'from-purple-500 to-pink-600',
       skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas']
     },
     {
@@ -35,68 +35,115 @@ const Skills = () => {
     'Express.js', 'Postman', 'Figma', 'OpenCV'
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center bg-black py-20 scroll-mt-16" data-animation="animate-fade-in">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-white mb-3">
+    <section id="skills" className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/80 to-black/0 pointer-events-none"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-white mb-4 tracking-tight">
             Technical <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Arsenal</span>
           </h2>
           <p className="text-base text-gray-400 max-w-2xl mx-auto">
             Crafting innovative solutions with modern technologies
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10" data-stagger>
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
           {skillCategories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
-              className="magical-card group relative bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:scale-105"
+              variants={item}
+              className="group relative bg-gray-900/40 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 overflow-hidden"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              
+              {/* Animated Corner Borders */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
 
-              <div className="relative z-10">
-                <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${category.color} mb-4 shadow-lg`}>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                   <div className="text-white">
                     {category.icon}
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-3">{category.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors">{category.title}</h3>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="space-y-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-1 bg-gray-800/80 border border-gray-700 rounded-full text-xs text-gray-300 hover:border-gray-600 hover:bg-gray-700/80 transition-colors"
-                    >
-                      {skill}
-                    </span>
+                    <div key={skillIndex} className="flex items-center gap-3 group/skill">
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${category.color} group-hover/skill:scale-150 transition-transform duration-300`}></div>
+                      <span className="text-gray-400 text-sm group-hover/skill:text-gray-200 transition-colors">{skill}</span>
+                    </div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="magical-card bg-gray-900/50 p-6 rounded-xl border border-gray-800" data-stagger>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-5 h-5 text-cyan-400" />
-            <h3 className="text-lg font-bold text-white text-center">Tools & Platforms</h3>
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+        {/* Tools Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-2xl bg-gray-900/30 backdrop-blur-sm border border-gray-800 p-8 overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+          <div className="relative z-10">
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <h3 className="text-xl font-bold text-white">Tools & Frameworks</h3>
+              <Sparkles className="w-5 h-5 text-cyan-400" />
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-3">
+              {tools.map((tool, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(6, 182, 212, 0.15)', borderColor: 'rgba(6, 182, 212, 0.5)' }}
+                  className="px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 text-gray-300 text-sm font-medium cursor-default transition-all duration-300 hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10"
+                >
+                  {tool}
+                </motion.span>
+              ))}
+            </div>
           </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {tools.map((tool, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 rounded-lg text-sm text-gray-300 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:scale-105 transition-all duration-300 cursor-default"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
